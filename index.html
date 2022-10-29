@@ -11,11 +11,58 @@
   </head>
 
   <body>
-    <h1>Write your Markdown here! </h1>
-    <div> <textarea name="text" id="text" cols="30" rows="10"></textarea></div>
-    <h1>Copy Your HTML here:</h1>
-    <div> <textarea name="content" id="content" cols="30" rows="10"></textarea> </div>
+      <nav> <h1> Convert your Markdown to HTML.</h1></nav>
+      <div class="row">
+      <div class='column'>
+        <h1>Write your Markdown here! </h1>
+        <div> <textarea name="text" id="text" cols="30" rows="10">
+          # Sample Markdown
 
+          # First Heading
+
+          This is some basic, sample markdown.
+
+          ## Second Heading
+
+          * Unordered lists, and:
+            1. One
+            2. Two
+            3. Three
+          * More
+
+          &gt; Blockquote
+
+          And **bold**, *italics*, and even *italics and later **bold***. Even ~~strikethrough~~. [A link](https://www.google.com/imgres?imgurl=https%3A%2F%2Fassets.teenvogue.com%2Fphotos%2F62c87cd0650ca07dc89535cb%2F3%3A4%2Fw_3000%2Ch_4000%2Cc_limit%2FBurna%2520Boy%2520-%25202022%2520Press%2520Image%2520-%2520Elliot%2520Hensford.jpg&imgrefurl=https%3A%2F%2Fwww.teenvogue.com%2Fstory%2F5-best-new-songs-this-week-burna-boy-doechii-emotional-oranges-and-more&tbnid=pB3gl_jBe2PGKM&vet=12ahUKEwiig5L3sIb7AhVwrXIEHTJzAjUQMygBegUIARDiAQ..i&docid=Mft1FElNaPRkVM&w=3000&h=4000&q=burna%20boy&ved=2ahUKEwiig5L3sIb7AhVwrXIEHTJzAjUQMygBegUIARDiAQ) to Burna Boy, my favorite artist ever.
+
+          And code highlighting:
+
+          ```
+            if (x+y==17){
+              return true;
+            }
+            else {
+              return false;
+            }
+          ```
+
+          Or inline code like `var foo = 'bar';`.
+
+          Or an image of Wizkid
+
+          ![wizkid](https://i.iheart.com/v3/catalog/artist/657868?ops=fit(480%2C480)%2Crun(%22circle%22))
+
+          The end ...
+      </textarea></div>
+    </div>
+    <div class='column'>
+        <h1><button id="btn">Copy</button> Your HTML here:</h1>
+        <div> <textarea name="content" id="content" cols="30" rows="10"></textarea> </div>
+    </div>
+    </div>
+    <p> This website can be used to convert your markdown file into HTML for whatever
+        use you may need. Please do not use this website for malicious intentions. This
+        site was made using HTML, CSS, and Javascript and was made by Pelumi Tayo-Orisadare.
+        To get in contact with me please email me at <a href="mailto: pelumi.tayoorisadare@gmail.com?subject=Reaching%20out%20to%20you!&body=Hi%20Pelumi,">pelumi.tayoorisadare@gmail.com</a>
   </body>
 
   <script>
@@ -23,6 +70,9 @@
       $("#text").keyup(function(){
         document.getElementById("content").value = marked.parse(document.getElementById("text").value)
       })
+      $("#btn").click(function(){
+		    navigator.clipboard.writeText(document.getElementById('content').value)
+	    })
     })
   </script>
 </html>
