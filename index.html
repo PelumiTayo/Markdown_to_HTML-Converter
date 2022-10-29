@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>md Converter</title>
+  </head>
+
+  <body>
+    <h1>Write your Markdown here! </h1>
+    <div> <textarea name="text" id="text" cols="30" rows="10"></textarea></div>
+    <h1>Copy Your HTML here:</h1>
+    <div> <textarea name="content" id="content" cols="30" rows="10"></textarea> </div>
+
+  </body>
+
+  <script>
+    $(document).ready(function(){
+      $("#text").keyup(function(){
+        document.getElementById("content").value = marked.parse(document.getElementById("text").value)
+      })
+    })
+  </script>
+</html>
